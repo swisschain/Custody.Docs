@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  vault:
+    image: "swisschains/sirius-vault-hsm:4.4.4"
+    container_name: vault
+    ports:
+      - "5001:5000"
+    environment:
+      JAVA_OPTS: "-Xms256m -Xmx512m"
+      INSTANCE_NAME: "Example Custody"
+      LOGGING_ELASTIC_INDEX_PREFIX: "sirius-custody-logs-"
+      LOGGING_ELASTIC_NODE_URLS: "http://192.168.0.1:9200"
+    logging:
+      driver: json-file
+      options:
+        max-size: 1000m
