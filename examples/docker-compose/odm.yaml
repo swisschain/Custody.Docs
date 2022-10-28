@@ -9,6 +9,7 @@ services:
     mem_reservation: 4096m
     volumes:
       - ./data/:/config/dbdata/
+      # Documentation and examples can be found here https://www.ibm.com/docs/en/odm/8.10?topic=access-configuring-user-without-openid
       - ./webSecurity.xml
     environment:
       - LICENSE=accept
