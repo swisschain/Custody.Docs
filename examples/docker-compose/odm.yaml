@@ -1,0 +1,19 @@
+version: '2.2'
+services:
+  odm-swisschain:
+    image: ibmcom/odm
+    container_name: odm
+    ports:
+      - "9060:9060"
+    mem_limit: 4096m
+    mem_reservation: 4096m
+    volumes:
+      - ./data/:/config/dbdata/
+      - ./webSecurity.xml
+    environment:
+      - LICENSE=accept
+      - SAMPLE=false
+    logging:
+      driver: json-file
+      options:
+        max-size: 1000m
