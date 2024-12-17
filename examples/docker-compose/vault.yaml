@@ -1,13 +1,14 @@
 version: "3.3"
 services:
   vault:
-    image: "swisschains/sirius-vault-hsm:4.4.4"
+    image: "swisschains/sirius-vault-hsm:5.3.9"
     container_name: vault
     ports:
       - "5001:5000"
     environment:
-      JAVA_OPTS: "-Xms256m -Xmx512m"
+      JAVA_OPTS: "-Xms1024m -Xmx2048m"
       INSTANCE_NAME: "Example Custody"
+      CUSTODY_TYPE: "PRIVATE"
       LOGGING_ELASTIC_INDEX_PREFIX: "sirius-custody-logs-"
       LOGGING_ELASTIC_NODE_URLS: "http://192.168.0.1:9200"
     logging:
