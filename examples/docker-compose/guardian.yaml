@@ -1,13 +1,14 @@
 version: "3.3"
 services:
   guardian:
-    image: "swisschains/sirius-vault-guardian:6.5.0"
+    image: "swisschains/sirius-vault-guardian:6.9.17"
     container_name: guardian
     ports:
       - "5002:5000"
     environment:
-      JAVA_OPTS: "-Xms256m -Xmx512m"
+      JAVA_OPTS: "-Xms2048m -Xmx4096m"
       INSTANCE_NAME: "Example Custody"
+      CUSTODY_TYPE: "PRIVATE"
       LOGGING_ELASTIC_INDEX_PREFIX: "sirius-custody-logs-"
       LOGGING_ELASTIC_NODE_URLS: "http://192.168.0.1:9200"
     logging:
